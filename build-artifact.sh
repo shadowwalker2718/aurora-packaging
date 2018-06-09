@@ -13,7 +13,7 @@
 # limitations under the License.
 #
 
-set -eu
+set -eux
 
 print_available_builders() {
   find builder -name Dockerfile | sed "s/\/Dockerfile$//"
@@ -40,6 +40,7 @@ run_build() {
     -t "$IMAGE_NAME" /build.sh
   container=$(docker ps -l -q)
   artifact_dir="artifacts/$IMAGE_NAME"
+  echo "artifact_dir:\n$artifact_dir"
   mkdir -p "$artifact_dir"
   docker cp $container:/dist "$artifact_dir"
   docker rm "$container"

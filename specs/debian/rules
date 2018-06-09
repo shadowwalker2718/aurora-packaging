@@ -14,7 +14,7 @@
 #
 
 # Uncomment for debugging.
-#DH_VERBOSE = 1
+DH_VERBOSE = 1
 
 TMP     = $(CURDIR)/debian
 
