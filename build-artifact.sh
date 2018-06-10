@@ -30,19 +30,30 @@ run_build() {
 
   IMAGE_NAME="aurora-$(basename $BUILDER_DIR)"
   echo "Using docker image $IMAGE_NAME"
+  # Build an image from a Dockerfile
   docker build --pull -t "$IMAGE_NAME" "$BUILDER_DIR"
 
+  # Run a command in a new container
+  # --volume , -v		Bind mount a volume
+  # --tty , -t		Allocate a pseudo-TTY
+  # --env , -e		Set environment variables
+  # --net		Connect a container to a network
   docker run \
     -e AURORA_VERSION=$AURORA_VERSION \
     --net=host \
     -v "$(pwd)/specs:/specs:ro" \
     -v "$(realpath $RELEASE_TAR):/src.tar.gz:ro" \
     -t "$IMAGE_NAME" /build.sh
+    
+  # List containers
   container=$(docker ps -l -q)
   artifact_dir="artifacts/$IMAGE_NAME"
   echo "artifact_dir:\n$artifact_dir"
   mkdir -p "$artifact_dir"
+  
+  # Copy files/folders between a container and the local filesystem
   docker cp $container:/dist "$artifact_dir"
+  # Remove one or more containers
   docker rm "$container"
 
   echo "Produced artifacts in $artifact_dir:"
