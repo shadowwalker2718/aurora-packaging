@@ -78,3 +78,13 @@ There are only two requirements for a 'builder' to satisfy:
 - a `build.sh` script that creates artifacts
 
 Please see the makeup of other builders for examples.
+
+
+# HenryWu
+
+```
+✔ /opt/share/git_aurora/aurora-packaging [henrywu {origin/henrywu}|✔] 
+11:38 # ./build-artifact.sh builder/deb/ubuntu-artful ../snapshot-0.21.0-SNAPSHOT.tar.gz 0.21.0-SNAPSHOT
+```
+
+
