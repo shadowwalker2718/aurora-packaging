@@ -1,10 +1,11 @@
 [
   {
     "auth_mechanism": "UNAUTHENTICATED",
-    "name": "example",
+    "name": "HenryWu",
     "scheduler_zk_path": "/aurora/scheduler",
     "slave_root": "/var/lib/mesos",
     "slave_run_directory": "latest",
-    "zk": "127.0.0.1"
+    "zk": "u3,u4,u5"
   }
 ]
+

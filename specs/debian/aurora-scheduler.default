@@ -30,7 +30,7 @@ JAVA_OPTS='-Djava.library.path=/usr/local/lib'
 AURORA_HOME="/var/lib/aurora"
 
 # Name of the cluster. Please change this.
-CLUSTER_NAME="example"
+CLUSTER_NAME="HenryWu"
 
 # Listening port for the scheduler
 HTTP_PORT=8081
@@ -39,7 +39,7 @@ HTTP_PORT=8081
 QUORUM_SIZE=1
 
 # List of zookeeper endpoints
-ZK_ENDPOINTS="127.0.0.1:2181"
+ZK_ENDPOINTS="u3:2181,u4:2181,u5:2181"
 
 # Zookeeper path or URL to mesos master
 MESOS_MASTER="zk://${ZK_ENDPOINTS}/mesos"
@@ -65,7 +65,7 @@ THERMOS_EXECUTOR_PATH="/usr/share/aurora/bin/thermos_executor.pex"
 THERMOS_EXECUTOR_RESOURCES=""
 
 # Extra arguments to be passed to the thermos executor
-THERMOS_EXECUTOR_FLAGS="--announcer-ensemble 127.0.0.1:2181"
+THERMOS_EXECUTOR_FLAGS="--announcer-ensemble u3:2181"
 
 # Container types that are allowed to be used by jobs.
 ALLOWED_CONTAINER_TYPES="MESOS,DOCKER"
